@@ -1,0 +1,208 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  font-family: "Open Sans";
+  @media screen and (min-width: 900px) {
+    font-size: 18px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    font-size: 20px;
+  }
+}
+
+.container {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+}
+
+.background-filter::after {
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.background-filter {
+  position: relative;
+}
+
+.background {
+  width: 100%;
+  height: 100%;
+  background-image: url("./images/bg2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
+}
+
+.main {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.entry {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+}
+
+.welcome-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3em;
+  color: #fff;
+  height: 100%;
+  padding: 3rem;
+  transition: all 0.5s ease-in-out;
+}
+
+.slide-left {
+  transform: translateX(-100vw);
+}
+
+.outer-wrap {
+  overflow-x: hidden;
+  position: relative;
+  width: 100vw;
+  height: 40vh;
+  margin: 0 auto;
+}
+.middle-wrap {
+  position: relative;
+  width: 202vw;
+  height: 100%;
+  left: 0px;
+  transition: all 0.5s ease-in-out;
+}
+
+.inner-wrap {
+  display: inline-block;
+  width: 100vw;
+  height: 100%;
+  vertical-align: top;
+}
+
+.location {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 2rem;
+}
+.location h1 {
+  font-size: 2em;
+  color: #fff;
+}
+
+.temperature-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.temperature-description {
+  color: #fff;
+  margin: 1rem 0;
+}
+
+.city-input {
+  height: 50vh;
+}
+
+.city-input > form > input {
+  width: 300px;
+  height: 50px;
+  background: #0002;
+  border: 0;
+  outline: 0;
+  border-radius: 16px;
+  padding: 0.5rem 2rem;
+  color: #fff;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+/* //////////////// */
+
+.autocomplete {
+  position: relative;
+  display: inline-block;
+}
+
+input {
+  border: 1px solid transparent;
+  /* background-color: #f1f1f1; */
+  padding: 10px;
+  font-size: 16px;
+}
+
+input::placeholder {
+  color: #ffffff88;
+}
+
+input[type="text"] {
+  /* background-color: #f1f1f1; */
+  width: 100%;
+}
+
+input[type="submit"] {
+  background-color: DodgerBlue;
+  color: #fff;
+  cursor: pointer;
+}
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  /* top: 100%; */
+  left: 0;
+  right: 0;
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+/*when hovering an item:*/
+.autocomplete-items div:hover {
+  background-color: #e9e9e9;
+}
+
+/*when navigating through the items using the arrow keys:*/
+.autocomplete-active {
+  background-color: DodgerBlue !important;
+  color: #ffffff;
+}

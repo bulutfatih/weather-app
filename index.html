@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Weather App</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="background background-filter"></div>
+      <div class="main">
+        <div class="entry">
+          <div class="outer-wrap">
+            <div class="middle-wrap">
+              <div class="inner-wrap">
+                <div class="welcome-text">
+                  <p>What's the weather like in</p>
+                </div>
+              </div>
+              <div class="inner-wrap">
+                <div id="location-div" class="location">
+                  <h1 class="location-timezone">Location Name</h1>
+                  <div>
+                    <div class="temperature-section">
+                      <canvas class="icon" width="128" height="128"></canvas>
+                      <h2 class="temperature-degree">0</h2>
+                      <span>°C</span>
+                    </div>
+                  </div>
+                  <p class="temperature-description"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="city-input autocomplete">
+            <form>
+              <input
+                id="myInput"
+                type="text"
+                placeholder="type a location"
+                autofocus
+              />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="skycons.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
