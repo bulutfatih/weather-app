@@ -44,7 +44,7 @@ function searchForLocations() {
       /*insert a input field that will hold the current array item's value:*/
       b.innerHTML += "<input type='hidden' value='" + arr[i].text + "'>";
       /*execute a function when someone clicks on the item value (DIV element):*/
-      b.addEventListener("click", function(e) {
+      b.addEventListener("click", function (e) {
         /*insert the value for the autocomplete text field:*/
         searchBox.value = this.getElementsByTagName("input")[0].value;
         getWeather();
@@ -61,7 +61,7 @@ function searchForLocations() {
   the text field element and an array of possible autocompleted values:*/
 var currentFocus;
 /*execute a function when someone writes in the text field:*/
-searchBox.addEventListener("input", e => {
+searchBox.addEventListener("input", (e) => {
   closeAllLists();
   clearTimeout(typingTimer);
   if (searchBox.value) {
@@ -70,7 +70,7 @@ searchBox.addEventListener("input", e => {
 });
 
 /*execute a function presses a key on the keyboard:*/
-searchBox.addEventListener("keydown", function(e) {
+searchBox.addEventListener("keydown", function (e) {
   var x = document.getElementById(this.id + "autocomplete-list");
   if (x) x = x.getElementsByTagName("div");
   if (e.keyCode == 40) {
@@ -125,30 +125,30 @@ function closeAllLists(elmnt) {
   }
 }
 /*execute a function when someone clicks in the document:*/
-document.addEventListener("click", function(e) {
+document.addEventListener("click", function (e) {
   closeAllLists(e.target);
 });
 
-const listResult = data => {
-  const result = data.results.map(item => {
+const listResult = (data) => {
+  const result = data.results.map((item) => {
     return {
       mgrs: item.annotations.MGRS,
       text: item.formatted,
-      geometry: item.geometry
+      geometry: item.geometry,
     };
   });
   arr = result;
 };
 
-const search = e => {
+const search = (e) => {
   const src = e.target.value;
   fetch(
-    `https://api.opencagedata.com/geocode/v1/json?q=${src}&key=059a3fd1806f46b69d55a4ec4bec4943`
+    `https://api.opencagedata.com/geocode/v1/json?q=${src}&key=7fed3e7c4d624936a6dc2090b97b48db`
   )
-    .then(response => {
+    .then((response) => {
       return response.json();
     })
-    .then(data => {
+    .then((data) => {
       listResult(data);
       searchForLocations();
     });
@@ -156,7 +156,7 @@ const search = e => {
 
 function getWeather() {
   const text = searchBox.value;
-  const el = arr.find(item => item.text === text);
+  const el = arr.find((item) => item.text === text);
 
   if (el) {
     const lat = el.geometry.lat;
@@ -168,10 +168,10 @@ function getWeather() {
     const api = `${proxy}https://api.darksky.net/forecast/d98e42d4e7143b4bcc558ce699d5bfac/${lat},${lng}`;
     middleWrap.classList.add("slide-left");
     fetch(api)
-      .then(response => {
+      .then((response) => {
         return response.json();
       })
-      .then(data => {
+      .then((data) => {
         const { currently } = data;
         const { temperature, summary, icon } = currently;
 
