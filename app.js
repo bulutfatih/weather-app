@@ -162,8 +162,7 @@ function getWeather() {
     const lat = el.geometry.lat;
     const lng = el.geometry.lng;
 
-    const proxy = "https://cors-anywhere.herokuapp.com/";
-    // const proxy = "";
+    const proxy = "https://cors.bridged.cc/";
 
     const api = `${proxy}https://api.darksky.net/forecast/d98e42d4e7143b4bcc558ce699d5bfac/${lat},${lng}`;
     middleWrap.classList.add("slide-left");
